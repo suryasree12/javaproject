@@ -1,4 +1,4 @@
-// Importing classes from packages
+// Importing classes from java packages
 import java.io.*;
 
 // Main class
