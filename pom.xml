@@ -1,63 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     
-    <!-- Define project coordinates -->
+    <!-- Define the project's group ID, artifact ID, and version -->
     <groupId>com.example</groupId>
-    <artifactId>your-project</artifactId>
+    <artifactId>my-java-project</artifactId>
     <version>1.0.0</version>
-
-    <!-- Define project properties -->
+    
+    <!-- Define the project's packaging type (jar for a Java application) -->
+    <packaging>jar</packaging>
+    
+    <!-- Define project properties (optional) -->
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <!-- Define project dependencies -->
+    <dependencies>
+        <!-- JUnit for testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Apache Commons Lang -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+    
+    <!-- Define the build configuration -->
     <build>
         <plugins>
-            <!-- Compiler Plugin: Compile Java source code -->
+            <!-- Maven Compiler Plugin for Java compilation -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
-            
-            <!-- Surefire Plugin: Run tests and generate test reports -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-                <configuration>
-                    <!-- Specify test classes location -->
-                    <testClassesDirectory>${project.build.testOutputDirectory}</testClassesDirectory>
-                    <!-- You can configure more options here -->
-                </configuration>
-            </plugin>
-            
-            <!-- Failsafe Plugin: Run integration tests -->
-            <!-- (If you have integration tests, configure this plugin) -->
-            
-            <!-- Jar Plugin: Package your project as a JAR file -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>com.example.MainClass</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-            
-            <!-- Other plugins for packaging as a different format, e.g., WAR -->
         </plugins>
     </build>
 </project>
